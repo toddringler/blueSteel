@@ -2,10 +2,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Mapping
+from typing import TYPE_CHECKING, Mapping
 
-import geopandas as gpd
 import pandas as pd
+
+if TYPE_CHECKING:
+    import geopandas as gpd
 
 
 @dataclass(frozen=True)
@@ -98,7 +100,12 @@ def load_metadata_csv(csv_path: str | Path) -> pd.DataFrame:
     return pd.read_csv(csv_path)
 
 
-def to_geodataframe(df: pd.DataFrame, crs: str = "EPSG:4326") -> gpd.GeoDataFrame:
+def to_geodataframe(df: pd.DataFrame, crs: str = "EPSG:4326") -> "gpd.GeoDataFrame":
+    try:
+        import geopandas as gpd
+    except ImportError as exc:  # pragma: no cover
+        raise ImportError("geopandas is required for geospatial conversion") from exc
+
     if not {"longitude", "latitude"}.issubset(df.columns):
         raise ValueError("Expected longitude and latitude columns before geospatial conversion")
     return gpd.GeoDataFrame(
@@ -108,7 +115,7 @@ def to_geodataframe(df: pd.DataFrame, crs: str = "EPSG:4326") -> gpd.GeoDataFram
     )
 
 
-def reproject_tracks(gdf: gpd.GeoDataFrame, target_crs: str) -> gpd.GeoDataFrame:
+def reproject_tracks(gdf: "gpd.GeoDataFrame", target_crs: str) -> "gpd.GeoDataFrame":
     if gdf.crs is None:
         raise ValueError("GeoDataFrame has no CRS set")
     return gdf.to_crs(target_crs)
