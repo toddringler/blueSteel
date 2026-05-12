@@ -55,7 +55,7 @@ def plot_individual_track(
         sc = ax.scatter(
             track["longitude"],
             track["latitude"],
-            c=track["timestamp"].view("int64"),
+            c=track["timestamp"].astype("int64"),
             s=18,
             cmap="viridis",
             transform=transform,
