@@ -18,7 +18,7 @@ def subset_date_range(
         filtered = filtered[filtered["timestamp"] >= pd.to_datetime(start, utc=True)]
     if end is not None:
         filtered = filtered[filtered["timestamp"] <= pd.to_datetime(end, utc=True)]
-    return filtered.copy()
+    return filtered
 
 
 def drop_short_tracks(df: pd.DataFrame, min_points: int = 2) -> pd.DataFrame:
