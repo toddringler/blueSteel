@@ -1,0 +1,57 @@
+- id: courtney2025
+  citation_key: Courtney_2025_Animal_Biotelemetry
+  authors:
+    - Courtney
+    - Gray
+    - Schwanke
+    - Spencer
+    - Seitz
+  year: 2025
+  title: Insights into the ocean migration, behavior, and ecology of steelhead kelts from Prince of Wales Island, Alaska
+  journal: Animal Biotelemetry
+  doi: 10.1186/s40317-025-00403-7
+  geography:
+    - Southeast Alaska
+    - Gulf of Alaska
+    - Aleutian Islands
+  methods:
+    - pop-up satellite archival tags
+    - hidden Markov movement modeling
+    - telemetry
+  themes:
+    - kelts
+    - marine migration
+    - thermal ecology
+    - telemetry
+    - surface habitat occupancy
+
+- id: ohlberger2025
+  citation_key: Ohlberger_2025_Fish_and_Fisheries
+  authors:
+    - Ohlberger
+    - Buhle
+    - Buehrens
+    - Kendall
+    - Harbison
+    - Claiborne
+    - Losee
+    - Whitney
+    - Scheuerell
+  year: 2025
+  title: Declining marine survival of steelhead trout linked to climate and ecosystem change
+  journal: Fish and Fisheries
+  doi: 10.1111/faf.12878
+  geography:
+    - Washington Coast
+    - North Pacific Ocean
+  methods:
+    - hierarchical integrated population model
+    - demographic modeling
+    - survival analysis
+  themes:
+    - marine survival
+    - climate change
+    - pink salmon competition
+    - kelts
+    - NPGO
+    - iteroparity
