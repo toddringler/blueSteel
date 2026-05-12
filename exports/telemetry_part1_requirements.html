@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Telemetry Part 1 Requirements</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: 40px auto;
+    line-height: 1.6;
+}
+pre {
+    white-space: pre-wrap;
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+}
+</style>
+</head>
+<body>
+<h1>Telemetry Part 1 Requirements</h1>
+<p>This HTML export contains the Markdown source document.</p>
+<pre># Part 1 — Visualization of Steelhead Kelt GPS Tracks
+
+## Software Requirements Specification (SRS)
+
+---
+
+# 1. Purpose
+
+This document defines the software requirements for Part 1 of the `blueSteel` telemetry project:
+
+&gt; Visualization and exploratory analysis of marine migration tracks from satellite-tagged steelhead kelts.
+
+The purpose of this component is to:
+
+- ingest reconstructed fish movement tracks,
+- visualize individual and cohort migration paths,
+- compute basic movement metrics,
+- provide reproducible exploratory notebooks,
+- and establish the geospatial foundation for later fish–ocean coupling analyses.
+
+---
+
+# 3. Dataset Architecture
+
+The telemetry framework shall support:
+
+- multiple rivers,
+- multiple deployment years,
+- multiple telemetry studies,
+- and heterogeneous telemetry sources.
+
+The currently provided Situk River dataset is considered:
+
+&gt; an initial reference implementation and validation dataset.
+
+The software architecture shall therefore be generalized and extensible.
+
+---
+
+# 6.1 Kelt Object Model
+
+The software shall support a reusable kelt-centered object model.
+
+Each kelt object shall support:
+
+| Property | Description |
+|---|---|
+| fish_id | Internal unique identifier |
+| ptt_id | Telemetry transmitter ID |
+| river | River or watershed origin |
+| deployment_year | Tagging year |
+| sex | Fish sex |
+| fork_length_mm | Fish fork length |
+| deployment_datetime | Tagging timestamp |
+| release_location | Initial release coordinates |
+| track | Associated geospatial trajectory |
+| metadata | Additional deployment metadata |
+
+The software shall support linking:
+
+- track observations,
+- deployment metadata,
+- biological metadata,
+- and future environmental covariates
+
+into unified fish-level objects.
+
+---
+
+# 7. Functional Requirements
+
+The software shall support:
+
+- loading and validating telemetry track datasets,
+- creating GeoDataFrames,
+- rendering individual and cohort migration maps,
+- computing movement metrics,
+- exporting publication-quality figures,
+- and supporting downstream environmental overlays.
+</pre>
+</body>
+</html>
